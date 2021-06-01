@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nordic Motorhome</title>
+    <link rel="stylesheet" href="/MyCSS.css">
+</head>
+<body>
+    <div class="box-area">
+        <header>
+            <div class="logo">
+                <p> <img src="https://scontent.xx.fbcdn.net/v/t1.15752-9/188034083_214100963626828_4142950322410338703_n.jpg?_nc_cat=104&ccb=1-3&_nc_sid=58c789&_nc_ohc=QU1aO6o1Kg4AX8AcwEx&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=e9a540cdbce213b520b1c273ceebc9d7&oe=60C9FBFD">
+                    <a href="/">Nordic Motorhomes</a></p>
+            </div>
+
+            <div class="navbar">
+                <a href="/">Home</a>
+
+                <div class="dropdown">
+                    <button class="dropbtnaut">Autocamper
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/createMotorhomeModel">Opret ny autocampermodel</a>
+                        <a href="/createMotorhomeUnit">Opret ny autocamperenhed</a>
+                        <a href="/listMotorhome">Liste over autocamper modeller</a>
+                        <a href="/searchMotorhomeUnit">Liste over autocampere</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="dropbtncus">Kunder
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/createCustomer">Opret ny kunde</a>
+                        <a href="/customer">Liste over kunder</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <button class="dropbtncon">Kontrakter
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="/selectMotorhome">Opret ny kontrakt</a>
+                        <a href="/listBooking">Liste over kontrakter</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <div class="banner-area">
+            <h2>Kontraktdetaljer</h2>
+        </div>
+        <div class="content-area">
+            <h2>Se kontrakt detaljer</h2>
+
+                <div class="viewdetails">
+                    <label>Start- og slutdato:</label><br>
+                    <span class="bold" th:text="${booking.startDate}" /> / <span class="bold" th:text="${booking.endDate}" /><br>
+                    <label>Afhenting- og afleveringstidspunkt:</label><br>
+                    <span class="bold" th:text="${booking.pickupTime}" /> - <span class="bold" th:text="${booking.dropoffTime}" /><br>
+                    <label>Afhentning- og afleveringssted:</label><br>
+                    <span class="bold" th:text="${booking.pickupPlace}" />, <span class="bold" th:text="${booking.dropoffPlace}" /><br>
+
+                    <a th:href="@{'/bookings/editBooking/'+${booking.bookingID}}">
+                        <button class="btn-edit" id="btn-editBooking">Rediger booking</button><br>
+                    </a>
+
+                    <span th:text="${customer.firstName}" /> <span th:text="${customer.lastName}" /><br>
+                    <label>Tlf: </label><span th:text="${customer.phone}" /><br>
+                    <span th:text="${customer.email}" /><br>
+                    <span th:text="${customer.streetAddress}" /> <span th:text="${customer.addressNumber}" /><br>
+                    <span th:text="${customer.zipCode}" /> <span th:text="${city.city}" /><br>
+                    <label>Kørekortnummer: </label><span th:text="${customer.driverLicenseNo}" /><br>
+
+                    <a th:href="@{'/bookings/changeCustomerOnBooking/'+${booking.bookingID}}">
+                        <button class="btn-edit" id="btn-changeCustomer">Ændr kunde</button><br>
+                    </a>
+
+                    <label>Mærke, model og registrering:</label><br>
+                    <span th:text="${motorhomeModel.brand}" /> <span th:text="${motorhomeModel.modelName}" /><br>
+                    <span th:text="${motorhomeUnit.registration}" /><br>
+                    <label>Antal senge, antal selepladser, antal siddepladser:</label><br>
+                    <span th:text="${motorhomeModel.numberOfBeds}" />, <span th:text="${motorhomeModel.numberOfSeatBelts}" />, <span th:text="${motorhomeModel.numberOfSeats}" /><br>
+
+                    <a th:href="@{'/bookings/changeMotorhomeUnitOnBooking/'+${booking.bookingID}}">
+                        <button class="btn-edit" id="btn-changeMotorhomeUnit">Ændr autocamper</button><br>
+                    </a>
+
+                    <label>Totalpris:</label>
+                    <span th:text="${totalPrice}" /> DKK<br>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Item</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="ei: ${extraItemList}">
+                                <td th:text="${ei.get(0)}" />
+                                <td th:text="${ei.get(1)}" />
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <a th:href="@{'/bookings/addRemoveExtras/'+${booking.bookingID}}">
+                        <button class="btn-edit" id="btn-addRemoveExtras">Tilføj / fjern tilvalg</button>
+                    </a>
+
+                </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,624 @@
+*{
+    margin: 0;   /* sætter margin til at være 0 */
+    padding: 0;   /* sætter padding til at være 0 */
+}
+body {
+    font-family: bignoodletitling, sans-serif;  /* bestemmer fonten på al tekst */
+    text-align: center; /* bestemmer tekstens horisontale position */
+    background-color: #d0e2df; /* baggrundsfarven */
+    z-index: -1; /* lægger baggrunden ind bagerst */
+}
+.navbar {
+    overflow: hidden; /* 'gemmer' ting der normalt ville nå ud over navigationsbarens kanter */
+    background-color: #8bb191; /* baggrundsfarven på navigationsbaren */
+}
+.navbar a {
+    float: left; /* <a> elementerne i navigationsbaren lægger sig i venstre side */
+    font-size: 16px; /* størrelsen på teksten */
+    color: white; /* farven på teksten */
+    text-align: center; /* bestemmer tekstens horisontale position i <a> */
+    padding: 14px 16px; /* bestemmer paddingen (top/bund og venstre/højre) */
+    text-decoration: none; /* fjerner al dekoration (fx bindestreger eller punkter) */
+}
+.dropdown {
+    float: left; /* elementerne lægger sig i venstre side af navigationsbaren. I dette tilfælde helt op mod "Home"-knappen  */
+    overflow: hidden; /* 'gemmer' ting der normalt ville nå ud over dropdown kanterne */
+}
+.dropdown .dropbtnaut, .dropdown .dropbtncus, .dropdown .dropbtncon{ /* Hhv. knapperne "Autocamper", "Kunder" og "Kontrakter" */
+    font-size: 16px; /* tekst størrelse */
+    border: none; /* ingen kanter omkring knapperne */
+    outline: none; /* ingen outline omkring knapperne */
+    color: white; /* tekstfarve på knapperne */
+    padding: 14px 16px; /* padding top/bund = 14px og venstre/højre = 16px; */
+    background-color: inherit; /* arver farven fra navigationsbaren */
+    font-family: inherit; /* arver font-family fra body */
+    margin: 0; /* sætter margin til a være 0, dvs. ingen mellemrum mellem knapperne */
+}
+.navbar a:hover, .dropdown:hover .dropbtnaut{
+    background-color: #6c9972; /* farven der vises over knappen "Autocamper" når man holder musen over */
+}
+.navbar a:hover, .dropdown:hover .dropbtncus {
+    background-color: #6c9972; /* farven der vises over knappen "Kunder" når man holder musen over */
+}
+.navbar a:hover, .dropdown:hover .dropbtncon {
+    background-color: #6c9972; /* farven der vises over knappen "Kontrakt" når man holder musen over */
+}
+.dropdown-content { /* indholdet af dropdown menuerne */
+    display: none; /* gemmer indholdet af dropdown */
+    position: absolute;  /* gør sådan så knapperne i navigationsmenuen ikke rykker sig, når indholdet bliver vist */
+    background-color: #f9f9f9; /* baggrundsfarven på indholdet i dropdown menuen */
+    min-width: 160px; /* minimumsbredden på indholdet i dropdown menuen */
+    z-index: 1; /* bestemmer, at indholdet i dropdown menuen skal ligge over andre elementer (dem med z-index under 1) */
+}
+.dropdown-content a { /* teksten i indholdet af dropdown menuen*/
+    display: block; /* lægger de forskellige <a> elementer op ovenover hinanden */
+    float: none; /* <a> lægger sig ikke op ad noget */
+    color: black; /* tekstfarven */
+    padding: 12px 16px; /* padding af teksten i <a> i top/bund og venstre/højre */
+    text-decoration: none; /* fjerner al dekoration (fx bindestreger eller punkter) */
+    text-align: left; /* bestemmer den horisontale position */
+}
+.dropdown-content a:hover {
+    background-color: #e9eee3; /* farven når man holder musen over indholdet af dropdown menuen */
+}
+.dropdown:hover .dropdown-content {
+    display: block; /* bestemmer hvordan indholdet skal vises når man holder musen over */
+}
+.logo{
+    width: 100%; /* bredden af logoet i headeren */
+    line-height: 100px; /* linje højden i logoet */
+}
+.logo a{
+    text-decoration: none; /* fjerner al dekoration (fx bindestreger eller punkter) */
+    font-size: 50px; /* tekststørrelse */
+    font-style: oblique; /* giver teksten en bestemt stil */
+    font-weight: bolder; /* gør teksten tykkere */
+    font-family: "Archivo Black", serif; /* fonten for teksten i logoet */
+    color: #1c4a2a; /* farven på teksten */
+    letter-spacing: 4px; /* hvor meget plads der er mellem hvert bogstav */
+    margin-top: 20px; /* marginen til toppen */
+}
+img{ /* billede i header */
+    float: right; /* bestemmer hvor på siden billedet horisontalt skal ligge */
+    margin-right: 250px; /* bestemmer det skal ligge 250px fra højre side */
+    margin-top: 15px; /* marginen til toppen */
+}
+header{
+    height: 120px; /* højde på headeren */
+    background: #d0e2df; /* baggrundsfarve */
+    width: 100%; /* bredden af headeren */
+    z-index: 12; /* bestemmer at headeren skal ligge forrest */
+    position: fixed; /* sætter headeren "fast", dvs. den bliver hvor den er når man scroller ned på siden */
+}
+.banner-area{ /* arealet under headeren */
+    width: 100%; /* bredden af banneret */
+    height: 450px; /* højden af banneret */
+    position: fixed; /* sætter banneret "fast", dvs. den bliver hvor den er når man scroller ned på siden */
+    top: 120px; /* starter først 120px fra toppen */
+    background-image: url("https://www.hymer.com/hymer/website-assets/1.produktseiten/camper-vans/image-thumb__7446__stage-background-hymer_auto_a05bec4b94dd033e991957001b2e5420/dsc_0026-04_.jpg");
+    background-size: cover; /* skalerer billedet sådan det dækker den angivne størrelse */
+    background-position: center center;  /* sætter billedet i centrum */
+}
+.banner-area h2{  /* teksten til banneret */
+    padding-top: 10%; /* padding i toppen af overskriften */
+    font-size: 70px; /* størrelsen på teksten i banneret */
+    font-family: "Trebuchet MS", sans-serif; /* fonten for teksten i overskriften */
+    color: #fff; /* farven på teksten i banneret */
+    margin: auto; /* bestemmer at teksten i banneret er sat i midten*/
+}
+.content-area{ /* området under banneret */
+    width: 100%; /* bredden af content-area */
+    position: relative; /* bredden af content-area */
+    top: 500px; /* hvor content-area skal starte (500px fra toppen) */
+    background: #d0e2df; /* baggrundsfarven content-area */
+    height: 100%; /* højden af content-area */
+    padding-bottom: 50px; /* padding i bunden af content-area */
+    padding-top: 30px; /* padding i toppen af content-area */
+    margin: 0; /* marginen er sat til 0 */
+}
+table{ /* næsten alle tabeller i programmet */
+    margin: 20px auto 50px auto; /* placeringen af tabellen i content-area */
+    border-collapse: collapse; /* cellerne i tabellen falder i ét */
+    width: 90%; /* bredden på tabellerne */
+}
+th{ /* næsten alle table heads i programmet */
+    background-color: #689c85; /* farven på table heads */
+}
+td,th{ /* table data cells og table heads */
+    font-family: bignoodletitling, sans-serif; /* bestememer font-family i cellerne */
+    border: 1px solid black; /* bestememr border-tykkelsen i cellerne */
+    text-align: center; /* centrerer teksten i cellerne */
+    padding: 5px 10px 5px 5px; /* padding omkring teksten i cellerne */
+}
+tr{ /* tabelrækkerne */
+    background-color: white; /* baggrundsfarven i tabelrækkerne */
+}
+tr:nth-child(even){ /* hver anden række i tabellerne */
+    background-color: #b3cbbd; /* baggrundsfarven på hver anden række i tabellerne */
+}
+.content-area h2{ /* overskrift under banneret */
+    font-family: bignoodletitling, sans-serif; /* bestememer font-family i overskriften */
+    letter-spacing: 3px; /* bestemmer mellemrummet mellem bogstaverne i overskriften */
+    padding-top: 30px; /* padding i toppen af teksten i overskriften */
+    padding-bottom: 30px; /* padding i bunden af teksten i overskriften */
+    font-size: 40px; /* tekststørrelsen i overskriften */
+    margin: 0; /* marginen er sat til 0 */
+    text-align: center; /* centrerer overskriften i content-area */
+}
+.addcustomer{ /* html siden addCustomer */
+    padding-bottom: 50px; /* padding i bunden */
+}
+.addcustomer p { /* p elementet i addCustomer */
+    padding-top: 10px; /* padding i toppen */
+    padding-bottom: 50px; /* padding i bunden */
+}
+.addcustomer a{ /* a elementet i addCustomer */
+    width: auto; /* centrerer disse elementer */
+}
+.addcustomer label{ /* label elementet i addCustomer */
+    font-weight: bold; /* bestemmer tykkelsen af teksten */
+    text-decoration: underline; /* gør teksten understreget */
+    margin-top: 3px; /* marginen i toppen af label */
+    margin-right: 20px; /* marginen til højre for label */
+    padding: 5px 10px; /* padding omkring label */
+    width: 250px; /* bredden af label */
+    display: inline-block; /* gør at man kan have elementer ved siden af. Desuden kan man sætte bredde og højde med denne */
+}
+.addcustomer .btn-returncus{ /* knap til returningcus i addCustomer */
+    background-color: #a4d5b9; /* farven på knappen */
+    border: 2px solid black; /* borderen på knappen */
+    border-radius: 5px; /* giver runde hjørner */
+    padding: 7px 10px; /* padding omkring tekst i knappen */
+    margin-left: 10px; /* afstanden til elementet på venstre side */
+}
+.addcustomer .btn-newcus{ /* knap til newcus i addCustomer */
+    background-color: #a4d5b9; /* farven på knappen */
+    border: 2px solid black; /* borderen på knappen */
+    border-radius: 5px; /* giver runde hjørner */
+    padding: 7px 20px; /* padding omkring tekst i knappen */
+}
+.addextras{ /* content-area i addExtras htlm */
+    padding-bottom: 30px; /* padding i bunden */
+}
+.addextras table{ /* tabellen i addExtras*/
+    width: 60%; /* bredden på tabellen */
+    margin: auto; /* placeringen af tabellen */
+}
+.addextras input[type=submit]{ /* submit knap i addExtras */
+    width: 150px; /* bredden på knappen */
+    background-color: #a4d5b9; /* farven på knappen */
+    border-radius: 5px; /* giver runde hjørner */
+    margin-top: 30px; /* marginen i toppen */
+    margin-bottom: 30px; /* marginen i bunden */
+    padding: 7px 10px; /* padding i top/bund og venstre/højre */
+}
+.addextras input[type=number]{ /* input typen number i addExtras */
+    border: 2px solid black; /* borderen omkring denne */
+    border-radius: 5px; /* farven på knappen */
+    padding: 7px 20px; /* padding i top/bund og venstre/højre */
+}
+.addremoveextras{
+    margin: auto;
+}
+.addremoveextras label{
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.addremoveextras input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.changecus p{
+    font-weight: bold;
+    padding: 10px;
+}
+.changecus .btn-selectCustomer{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.changemotorhomeunit p{
+    font-weight: bold;
+    padding: 10px;
+}
+.changemotorhomeunit li{
+    text-align: right;
+}
+.editbookingdetails{
+    margin: auto;
+    padding-bottom: 50px;
+}
+.editbookingdetails label{
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.editbookingdetails input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.editbookingdetails input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.finalbooking{
+    margin: 30px auto;
+    padding-bottom: 150px;
+}
+.finalbooking input[type=text]{
+    text-align: left;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.finalbooking label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 200px;
+    display: inline-block;
+    text-align: right;
+}
+.finalbooking input[type=submit]{
+    width: 150px;
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.listbookings{
+    margin: auto;
+}
+.listbookings input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.listbookings .btn-viewBooking{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.listbookings button[type=submit]{
+    width: 50px;
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.newcustomer{
+    margin: auto;
+}
+.newcustomer label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.newcustomer input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.newcustomer input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.returningcus{
+    width: auto;
+}
+.returningcus .btn-selectexistingcus{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.createbooking{
+    margin: auto;
+}
+.createbooking input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 7px 50px;
+}
+.createbooking input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.createbooking .btn-selectMotorhome{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+
+.viewdetails{
+    margin: auto;
+}
+.viewdetails label {
+    font-weight: bold;
+}
+.viewdetails table{
+    width: 30%;
+}
+.viewdetails .btn-edit{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.createcustomer{
+    margin: auto;
+}
+.createcustomer label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.createcustomer input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.createcustomer input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.customerlist{
+    margin: auto;
+}
+.customerlist input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.customerlist .btn-customerUpdate{
+    background-color: #a4d5b9;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.customerlist button[type=submit]{
+    width: 50px;
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.updatecus{
+    margin: auto;
+}
+.updatecus label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.updatecus input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.updatecus input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.frontpage{
+    margin: auto;
+}
+.frontpage input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.frontpage .btn-selectMotorhomeModel{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.frontpage button[type=submit]{
+    width: 50px;
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.createmotorhomemodel{
+    margin: auto;
+}
+.createmotorhomemodel label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.createmotorhomemodel input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.createmotorhomemodel input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.listmotorhomes .btn-motorhomeUpdate{
+    background-color: #a4d5b9;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.listmotorhomes button[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 10px;
+}
+.listmotorhomes input[type=text] {
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.updatemotorhomemodel{
+    margin: auto;
+}
+.updatemotorhomemodel label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.updatemotorhomemodel input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.updatemotorhomemodel input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.createmotorhomeunit{
+    margin: auto;
+}
+.createmotorhomeunit label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.createmotorhomeunit input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.createmotorhomeunit input[type=submit]{
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
+.searchunit{
+    margin: auto;
+}
+.searchunit input[type=text]{
+    text-align: center;
+    width: 10%;
+    padding: 3px 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.searchunit button[type=submit]{
+    width: 50px;
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 7px 10px;
+}
+.searchunit .btn-selectMotorhomeUnitUpdate{
+    background-color: #a4d5b9;
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 7px 10px;
+}
+.updateunit{
+    margin: auto;
+}
+.updateunit label {
+    margin-top: 3px;
+    margin-right: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    display: inline-block;
+    text-align: right;
+    font-weight: bold;
+}
+.updateunit input[type=text]{
+    width: 150px;
+    padding: 5px 10px;
+    margin-top: 10px;
+}
+.updateunit input[type=submit] {
+    background-color: #a4d5b9;
+    border-radius: 5px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    padding: 7px 50px;
+}
